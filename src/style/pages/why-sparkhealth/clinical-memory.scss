@@ -1,0 +1,74 @@
+@use "../../utils/colors.scss" as color;
+@use "../../utils/func.scss" as func;
+@use "../../utils/vars.scss" as vars;
+
+.clinical-memory {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  border-radius: 48px;
+  overflow: hidden;
+  @include func.flex(
+    column,
+    $justify: flex-start,
+    $align: flex-start,
+    $gap: 40px,
+    $wrap: nowrap
+  );
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    max-width: 600px;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vars.$spacing-lg;
+    width: 100%;
+  }
+
+  &-card {
+    padding: 32px vars.$spacing-lg;
+    border-radius: 16px;
+    background: linear-gradient(
+      to right,
+      rgba(color.$navy, 0.2),
+      rgba(color.$purple, 0.2)
+    );
+    box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+    @include func.flex(
+      column,
+      $justify: center,
+      $align: center,
+      $gap: 0,
+      $wrap: nowrap
+    );
+    text-align: center;
+    color: color.$purple-light;
+  }
+
+  &-caption {
+    color: color.$purple-light;
+    width: 100%;
+    text-align: left;
+  }
+}
