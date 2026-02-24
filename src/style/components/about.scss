@@ -9,11 +9,23 @@
   }
 
   &-inner {
-    @include func.flex(row, $justify: flex-start, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+    @include func.flex(
+      row,
+      $justify: flex-start,
+      $align: center,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
   }
 
   &-text {
-    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: 40px, $wrap: nowrap);
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: 40px,
+      $wrap: nowrap
+    );
     flex: 1;
   }
 
@@ -29,14 +41,26 @@
   }
 
   &-content {
-    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-lg, $wrap: nowrap);
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
     max-width: 520px;
   }
 
   &-quote {
     border-left: 1px solid color.$purple-light;
     padding-left: vars.$spacing-md;
-    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: 4px, $wrap: nowrap);
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: 4px,
+      $wrap: nowrap
+    );
 
     p {
       color: color.$purple-light;
@@ -44,15 +68,31 @@
   }
 
   &-cards {
-    @include func.flex(row, $justify: flex-start, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+    @include func.flex(
+      row,
+      $justify: flex-start,
+      $align: center,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
     flex: 1;
   }
 
   &-card {
-    @include func.flex(column, $justify: flex-start, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: center,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
     flex: 1;
     height: 428px;
-    background: linear-gradient(to right, rgba(color.$navy, 0.1), rgba(color.$purple, 0.1));
+    background: linear-gradient(
+      to right,
+      rgba(color.$navy, 0.1),
+      rgba(color.$purple, 0.1)
+    );
     border-radius: vars.$spacing-md;
     padding: vars.$spacing-lg;
     box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
@@ -84,7 +124,13 @@
     }
 
     &-info {
-      @include func.flex(column, $justify: center, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
+      @include func.flex(
+        column,
+        $justify: center,
+        $align: center,
+        $gap: vars.$spacing-sm,
+        $wrap: nowrap
+      );
     }
   }
 }

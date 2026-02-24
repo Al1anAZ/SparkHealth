@@ -45,15 +45,15 @@ SparkHealth/
 
 ## Design Tokens
 
-| Variable | Value | Usage |
-|---|---|---|
-| `$navy` | `#000035` | Primary background |
-| `$purple` | `#7A5CFA` | Interactive / hover |
-| `$orange` | `#E58F28` | CTA buttons |
-| `$rounded` | `999px` | Pill border-radius |
-| `$spacing-sm` | `8px` | Small gaps |
-| `$spacing-md` | `16px` | Medium gaps |
-| `$spacing-lg` | `24px` | Large gaps |
+| Variable      | Value     | Usage               |
+| ------------- | --------- | ------------------- |
+| `$navy`       | `#000035` | Primary background  |
+| `$purple`     | `#7A5CFA` | Interactive / hover |
+| `$orange`     | `#E58F28` | CTA buttons         |
+| `$rounded`    | `999px`   | Pill border-radius  |
+| `$spacing-sm` | `8px`     | Small gaps          |
+| `$spacing-md` | `16px`    | Medium gaps         |
+| `$spacing-lg` | `24px`    | Large gaps          |
 
 ## SCSS Conventions
 

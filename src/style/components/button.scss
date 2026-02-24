@@ -11,13 +11,16 @@
     left: vars.$spacing-md;
     right: vars.$spacing-md;
   }
-  @include func.flex(row, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
+  @include func.flex(
+    row,
+    $align: center,
+    $gap: vars.$spacing-sm,
+    $wrap: nowrap
+  );
   transition: background-color 0.15s ease-in-out;
-
 
   &:hover {
     background-color: rgba(color.$purple, 0.2);
-
   }
 
   &--large {
