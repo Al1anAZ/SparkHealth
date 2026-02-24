@@ -37,6 +37,7 @@ src/style/
 **Rule: every reusable UI component gets its own file in `components/`.** When adding a new component, create `src/style/components/<name>.scss` and `@use` it in `main.scss`. Never put component styles directly in `main.scss`.
 
 `main.scss` should only contain:
+
 - `@use` imports for utils and components
 - Global layout helpers like `.container` that don't belong to a single component
 
@@ -71,31 +72,32 @@ Typography classes are applied as HTML class attributes (not on semantic element
 
 Use tokens from `vars.scss` instead of hardcoded values:
 
-| Variable | Value | Usage |
-|---|---|---|
-| `$rounded` | `999px` | Pill/fully-rounded border-radius |
-| `$spacing-sm` | `8px` | Small gaps and padding |
-| `$spacing-md` | `16px` | Medium gaps and padding |
-| `$spacing-lg` | `24px` | Large gaps and padding |
+| Variable      | Value   | Usage                            |
+| ------------- | ------- | -------------------------------- |
+| `$rounded`    | `999px` | Pill/fully-rounded border-radius |
+| `$spacing-sm` | `8px`   | Small gaps and padding           |
+| `$spacing-md` | `16px`  | Medium gaps and padding          |
+| `$spacing-lg` | `24px`  | Large gaps and padding           |
 
 Import with `@use "../utils/vars.scss" as vars;` and use as `vars.$rounded`, `vars.$spacing-md`, etc. Never hardcode these values directly.
 
 ### Flexbox
 
 Use the `func.flex()` mixin instead of raw flexbox. Defaults: `row, center, center, 0, wrap`. Named parameters available:
+
 ```scss
 @include func.flex(row, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
 ```
 
 ### Colors
 
-| Variable | Hex | Usage |
-|---|---|---|
-| `$navy` | `#000035` | Primary background |
-| `$purple` | `#7A5CFA` | Interactive/hover |
-| `$purple-light` | `#DFDAFA` | Hover text states |
-| `$orange` | `#E58F28` | CTA buttons, active states |
-| `$error` | `#FF3D47` | Error states |
+| Variable        | Hex       | Usage                      |
+| --------------- | --------- | -------------------------- |
+| `$navy`         | `#000035` | Primary background         |
+| `$purple`       | `#7A5CFA` | Interactive/hover          |
+| `$purple-light` | `#DFDAFA` | Hover text states          |
+| `$orange`       | `#E58F28` | CTA buttons, active states |
+| `$error`        | `#FF3D47` | Error states               |
 
 ### Images
 
@@ -116,7 +118,14 @@ mages saved in @public folder
 
 - Use from @src/utils/liquid-glass.sccs glass effect during the creating design from figma where its needed
 
+### Formatting
+
+After adding or editing any code, run Prettier to format all changed files:
+
+```bash
+npx prettier --write .
+```
+
 ### Additional
 
 Dont add comments
-
