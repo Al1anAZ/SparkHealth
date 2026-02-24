@@ -1,8 +1,8 @@
-@use "../../utils/colors.scss" as color;
-@use "../../utils/func.scss" as func;
-@use "../../utils/vars.scss" as vars;
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
 
-.different {
+.feature-list {
   padding: {
     top: 120px;
     bottom: 120px;
