@@ -1,0 +1,80 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.card-grid {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(
+    column,
+    $justify: center,
+    $align: center,
+    $gap: 40px,
+    $wrap: nowrap
+  );
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(
+      column,
+      $justify: center,
+      $align: center,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    max-width: 800px;
+    text-align: center;
+  }
+
+  &-cards {
+    @include func.flex(
+      row,
+      $justify: flex-start,
+      $align: stretch,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    width: 100%;
+  }
+
+  &-card {
+    flex: 1;
+    padding: vars.$spacing-lg;
+    border-radius: 16px;
+    background: linear-gradient(
+      to right,
+      rgba(color.$navy, 0.2),
+      rgba(color.$purple, 0.2)
+    );
+    box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: center,
+      $gap: vars.$spacing-md,
+      $wrap: nowrap
+    );
+    text-align: center;
+
+    &-title {
+      color: color.$purple-light;
+      width: 100%;
+    }
+
+    &-desc {
+      width: 100%;
+    }
+  }
+}
