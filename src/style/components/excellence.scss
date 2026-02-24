@@ -1,0 +1,68 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.excellence {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(row, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-lg, $wrap: nowrap);
+
+  &-text {
+    @include func.flex(column, $justify: center, $align: flex-start, $gap: 40px, $wrap: nowrap);
+    flex: 1;
+  }
+
+  &-badge {
+    border-radius: vars.$rounded;
+    background-color: rgba(color.$purple-light, 0.1);
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-lg, $wrap: nowrap);
+  }
+
+  &-cards {
+    @include func.flex(column, $justify: center, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+    flex: 1;
+  }
+
+  &-list {
+    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-lg, $wrap: nowrap);
+    width: 100%;
+  }
+
+  &-card {
+    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-md, $wrap: nowrap);
+    background: rgba(color.$purple, 0.05);
+    border-radius: vars.$spacing-md;
+    box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+    padding: vars.$spacing-lg;
+    width: 100%;
+
+    &-icon {
+      @include func.flex(row, $justify: center, $align: center, $gap: 0, $wrap: nowrap);
+      border-radius: vars.$rounded;
+      background: linear-gradient(to bottom, rgba(color.$purple, 0.16), rgba(color.$purple-light, 0.16));
+      padding: 12px;
+      box-shadow: inset 0 0 12px 1px rgba(color.$purple-light, 0.1);
+      overflow: hidden;
+    }
+
+    &-body {
+      @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-sm, $wrap: nowrap);
+      width: 100%;
+    }
+
+    &-title {
+      color: color.$purple-light;
+    }
+  }
+}
