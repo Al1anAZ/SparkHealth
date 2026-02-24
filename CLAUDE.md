@@ -112,6 +112,10 @@ mages saved in @public folder
 - Use one `<h1>` per page; heading levels must not skip (`h1 → h2 → h3`).
 - Landmark regions (header, main, footer, nav) must be present so screen readers can navigate.
 
+### Liquid Glass Effect
+
+- Use from @src/utils/liquid-glass.sccs glass effect during the creating design from figma where its needed
+
 ### Additional
 
 Dont add comments

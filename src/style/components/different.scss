@@ -1,0 +1,50 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.different {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(column, $justify: center, $align: center, $gap: 40px, $wrap: nowrap);
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  .h2 {
+    text-align: center;
+  }
+
+  &-list {
+    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-lg, $wrap: nowrap);
+    width: 100%;
+  }
+
+  &-item {
+    background: linear-gradient(to right, rgba(color.$navy, 0.2), rgba(color.$purple, 0.2));
+    border-radius: vars.$spacing-md;
+    padding: vars.$spacing-lg;
+    box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+    min-height: 104px;
+    width: 100%;
+    @include func.flex(row, $justify: flex-start, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+
+    &-title {
+      flex: 1;
+      color: color.$purple-light;
+    }
+
+    &-desc {
+      flex: 1;
+    }
+  }
+}
