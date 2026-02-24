@@ -10,9 +10,9 @@
       rel="stylesheet"
     />
     <link rel="icon" href="/icon.ico" />
-    <title>SparkHealth | Home</title>
+    <title>SparkHealth | About Us</title>
     <link rel="stylesheet" href="/src/style/main.scss" />
-    <link rel="stylesheet" href="/src/style/pages/home/hero.scss" />
+    <link rel="stylesheet" href="/src/style/pages/about/about.scss" />
   </head>
   <body>
     <header class="header liquid-glass">
@@ -23,9 +23,7 @@
       <div class="header-nav-links">
         <nav>
           <ul class="header-nav-links">
-            <li>
-              <a href="/" class="p2-medium menue" aria-current="page">Home</a>
-            </li>
+            <li><a href="/" class="p2-medium menue">Home</a></li>
             <li>
               <a href="/pages/why-sparkhealth/" class="p2-medium menue"
                 >Why SparkHealth</a
@@ -35,7 +33,12 @@
               <a href="/pages/platform/" class="p2-medium menue">Platform</a>
             </li>
             <li>
-              <a href="/pages/about/" class="p2-medium menue">About Us</a>
+              <a
+                href="/pages/about/"
+                class="p2-medium menue"
+                aria-current="page"
+                >About Us</a
+              >
             </li>
           </ul>
         </nav>
@@ -46,24 +49,51 @@
       </div>
     </header>
     <main>
-      <section class="hero container">
-        <div class="hero-content">
-          <div class="hero-content-text">
-            <h1 class="h1">Built Specifically for Behavioral Health</h1>
-            <p class="p2-regular">
-              Most AI documentation tools are designed for general medicine.
-              SparkHealth is engineered exclusively for behavioral health
-              enterprises — where compliance, medical necessity, and
-              longitudinal care matter most
-            </p>
+      <section class="about container">
+        <div class="about-inner">
+          <div class="about-text">
+            <div class="about-badge liquid-glass p2-medium">About Us</div>
+            <div class="about-content">
+              <h2 class="h2">Leadership You Can Trust</h2>
+              <p class="p2-regular">
+                SparkHealth was founded by psychiatrists, psychologists, and
+                system leaders who have developed and led large behavioral
+                health enterprises at the highest level
+              </p>
+            </div>
+            <blockquote class="about-quote">
+              <p class="p2-medium">We are not outsiders building for you</p>
+              <p class="p2-medium">We are insiders building with you</p>
+            </blockquote>
           </div>
-          <button class="button liquid-glass button--large p2-medium">
-            Request a Conversation
-            <img src="/arrow.svg" alt="arrow" width="24" height="24" />
-          </button>
-        </div>
-        <div class="hero-visual">
-          <img src="/feather.svg" alt="SparkHealth Logo" />
+          <div class="about-cards">
+            <div class="about-card liquid-glass">
+              <div class="about-card-photo">
+                <img
+                  src="/van-gogh.webp"
+                  alt="Dr. Ethan Caldwell, Founder and Chief Medical Officer"
+                />
+                <div class="about-card-photo-overlay"></div>
+              </div>
+              <div class="about-card-info">
+                <p class="p2-medium">Dr. Ethan Caldwell</p>
+                <p class="p2-regular">Founder &amp; Chief Medical Officer</p>
+              </div>
+            </div>
+            <div class="about-card liquid-glass">
+              <div class="about-card-photo">
+                <img
+                  src="/red-head-man.webp"
+                  alt="Mason Reed, Co-Founder and CEO"
+                />
+                <div class="about-card-photo-overlay"></div>
+              </div>
+              <div class="about-card-info">
+                <p class="p2-medium">Mason Reed</p>
+                <p class="p2-regular">Co-Founder &amp; CEO</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="cta container">

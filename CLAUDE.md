@@ -14,32 +14,68 @@ No test runner or linter is configured.
 
 ## Architecture
 
-This is a static landing page (SparkHealth brand) built with Vite + SCSS. There is no JavaScript logic beyond importing styles — `src/main.js` only imports `./style/main.scss`.
+This is a multi-page static site (SparkHealth brand) built with Vite + SCSS. Each page has its own HTML file. There are no JS entry points — all styles are loaded via `<link rel="stylesheet">` tags in `<head>` (render-blocking, prevents flash of unstyled content).
+
+### Routing
+
+| URL                       | HTML file                          |
+| ------------------------- | ---------------------------------- |
+| `/`                       | `index.html`                       |
+| `/pages/why-sparkhealth/` | `pages/why-sparkhealth/index.html` |
+| `/pages/platform/`        | `pages/platform/index.html`        |
+| `/pages/about/`           | `pages/about/index.html`           |
+
+All pages are registered in `vite.config.js` under `build.rollupOptions.input`. Adding a new page requires an entry there.
 
 ### SCSS folder structure
 
 ```
 src/style/
-  main.scss              # Entry point — imports only, plus .container layout
+  main.scss              # Shared entry point — imports utils + shared components + .container
   utils/
     default.scss         # Browser CSS reset
     colors.scss          # All color variables
     font.scss            # Typography mixin + utility classes
     func.scss            # Flexbox mixin
     vars.scss            # Reusable design tokens ($rounded, $spacing-*)
-  components/
-    button.scss          # .button component
-    header.scss          # .header component
-    logo.scss            # .logo component
-    footer.scss          # .footer component
+  components/            # Styles used on 2+ pages
+    button.scss
+    header.scss
+    logo.scss
+    cta.scss
+    footer.scss
+  pages/                 # Styles used on exactly 1 page
+    home/
+      hero.scss
+    why-sparkhealth/
+      different.scss
+    platform/
+      excellence.scss
+    about/
+      about.scss
 ```
 
-**Rule: every reusable UI component gets its own file in `components/`.** When adding a new component, create `src/style/components/<name>.scss` and `@use` it in `main.scss`. Never put component styles directly in `main.scss`.
+**Rule: `components/` = styles used on 2 or more pages. `pages/<page>/` = styles used on exactly 1 page.**
+
+When adding a new shared component, create `src/style/components/<name>.scss` and `@use` it in `main.scss`.
+
+When adding page-specific styles, create `src/style/pages/<page-name>/<name>.scss` and import it in that page's JS entry only.
 
 `main.scss` should only contain:
 
-- `@use` imports for utils and components
+- `@use` imports for utils and shared components
 - Global layout helpers like `.container` that don't belong to a single component
+
+### Stylesheet loading
+
+Each page loads its styles via `<link rel="stylesheet">` tags in `<head>`. Always include `main.scss` plus the page-specific SCSS:
+
+```html
+<link rel="stylesheet" href="/src/style/main.scss" />
+<link rel="stylesheet" href="/src/style/pages/why-sparkhealth/different.scss" />
+```
+
+Using `<link>` tags (not JS imports) ensures styles are render-blocking and eliminates flash of unstyled content.
 
 ### Container
 
@@ -62,7 +98,21 @@ Each file declares its own dependencies with `@use` and a namespace alias:
 // then use as: color.$purple, func.flex(...)
 ```
 
-Utils are in `utils/`, so component files use `../utils/` paths.
+- Files in `components/` use `../utils/` paths.
+- Files in `pages/<page>/` use `../../utils/` paths (two levels up).
+
+### Nav links
+
+All nav and footer links must use absolute paths. Never use `href="#"` or relative paths:
+
+```html
+<a href="/">Home</a>
+<a href="/pages/why-sparkhealth/">Why SparkHealth</a>
+<a href="/pages/platform/">Platform</a>
+<a href="/pages/about/">About Us</a>
+```
+
+The active page link gets `aria-current="page"`.
 
 ### Typography
 
@@ -101,8 +151,7 @@ Use the `func.flex()` mixin instead of raw flexbox. Defaults: `row, center, cent
 
 ### Images
 
-All necessary i
-mages saved in @public folder
+All necessary images saved in @public folder
 
 ### HTML — Semantics & Accessibility
 
@@ -116,7 +165,8 @@ mages saved in @public folder
 
 ### Liquid Glass Effect
 
-- Use from @src/utils/liquid-glass.sccs glass effect during the creating design from figma where its needed
+- Use from @src/utils/liquid-glass.scss glass effect during the creating design from figma where its needed
+- Copy the `<svg style="display:none">` filter block into each page's HTML (the SVG filter is resolved per-document)
 
 ### Formatting
 

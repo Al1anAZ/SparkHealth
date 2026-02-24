@@ -10,9 +10,12 @@
       rel="stylesheet"
     />
     <link rel="icon" href="/icon.ico" />
-    <title>SparkHealth | Home</title>
+    <title>SparkHealth | Why SparkHealth</title>
     <link rel="stylesheet" href="/src/style/main.scss" />
-    <link rel="stylesheet" href="/src/style/pages/home/hero.scss" />
+    <link
+      rel="stylesheet"
+      href="/src/style/pages/why-sparkhealth/different.scss"
+    />
   </head>
   <body>
     <header class="header liquid-glass">
@@ -23,11 +26,12 @@
       <div class="header-nav-links">
         <nav>
           <ul class="header-nav-links">
+            <li><a href="/" class="p2-medium menue">Home</a></li>
             <li>
-              <a href="/" class="p2-medium menue" aria-current="page">Home</a>
-            </li>
-            <li>
-              <a href="/pages/why-sparkhealth/" class="p2-medium menue"
+              <a
+                href="/pages/why-sparkhealth/"
+                class="p2-medium menue"
+                aria-current="page"
                 >Why SparkHealth</a
               >
             </li>
@@ -46,24 +50,43 @@
       </div>
     </header>
     <main>
-      <section class="hero container">
-        <div class="hero-content">
-          <div class="hero-content-text">
-            <h1 class="h1">Built Specifically for Behavioral Health</h1>
-            <p class="p2-regular">
-              Most AI documentation tools are designed for general medicine.
-              SparkHealth is engineered exclusively for behavioral health
-              enterprises — where compliance, medical necessity, and
-              longitudinal care matter most
+      <section class="different container">
+        <div class="different-badge liquid-glass p2-medium">
+          What Makes SparkHealth Different
+        </div>
+        <h2 class="h2">Built Specifically for Behavioral Health</h2>
+        <div class="different-list">
+          <div class="different-item liquid-glass">
+            <p class="p1-medium different-item-title">
+              Purpose-built for behavioral health
+            </p>
+            <p class="p2-regular different-item-desc">
+              by leaders with deep enterprise and clinical expertise
             </p>
           </div>
-          <button class="button liquid-glass button--large p2-medium">
-            Request a Conversation
-            <img src="/arrow.svg" alt="arrow" width="24" height="24" />
-          </button>
-        </div>
-        <div class="hero-visual">
-          <img src="/feather.svg" alt="SparkHealth Logo" />
+          <div class="different-item liquid-glass">
+            <p class="p1-medium different-item-title">
+              Clinical Memory, Redefined
+            </p>
+            <p class="p2-regular different-item-desc">
+              TruMemory ensures patient stories remain continuous and defensible
+              across encounters, settings, and time
+            </p>
+          </div>
+          <div class="different-item liquid-glass">
+            <p class="p1-medium different-item-title">Audit-Ready by Design</p>
+            <p class="p2-regular different-item-desc">
+              documentation that satisfies compliance requirements from the
+              first note
+            </p>
+          </div>
+          <div class="different-item liquid-glass">
+            <p class="p1-medium different-item-title">Aligned Incentives</p>
+            <p class="p2-regular different-item-desc">
+              a usage-based business model that grows with you, never leaving
+              you with stranded or under-utilized licenses
+            </p>
+          </div>
         </div>
       </section>
       <section class="cta container">
