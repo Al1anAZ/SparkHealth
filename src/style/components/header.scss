@@ -1,0 +1,28 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.header {
+  position: fixed;
+  width: calc(100% - 60px);
+  justify-self: center;
+  z-index: 999;
+  border-radius: vars.$rounded;
+  background-color: rgba(color.$navy, $alpha: 0.8);
+
+  @include func.flex(row, $justify: space-between);
+
+  padding: {
+    top: 12px;
+    bottom: 12px;
+    right: 12px;
+    left: 24px;
+  }
+  margin: {
+    top: vars.$spacing-md;
+    bottom: vars.$spacing-md;
+  };
+  &-nav-links {
+    @include func.flex(row, space-between, center, vars.$spacing-lg);
+  }
+}

@@ -1,0 +1,31 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.button {
+  border-radius: vars.$rounded;
+  background-color: rgba(color.$orange, 0.8);
+  padding: {
+    top: 12px;
+    bottom: 12px;
+    left: vars.$spacing-md;
+    right: vars.$spacing-md;
+  }
+  @include func.flex(row, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
+  transition: background-color 0.15s ease-in-out;
+
+
+  &:hover {
+    background-color: rgba(color.$purple, 0.2);
+
+  }
+
+  &--large {
+    padding: {
+      top: vars.$spacing-md;
+      bottom: vars.$spacing-md;
+      left: vars.$spacing-lg;
+      right: vars.$spacing-lg;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+
+@use "./utils/default.scss" as *;
+@use "./utils/font.scss";
+@use "./utils/liquid-glass.scss";
+
+@use "./components/button.scss";
+@use "./components/logo.scss";
+@use "./components/header.scss";
+@use "./components/hero.scss";
+@use "./components/cta.scss";
+@use "./components/footer.scss";
+
+
+
+.container {
+  padding: {
+    left: 60px;
+    right: 60px;
+  }
+}

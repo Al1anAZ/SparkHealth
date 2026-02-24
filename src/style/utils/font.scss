@@ -1,0 +1,42 @@
+@use "./colors.scss" as fontcolor;
+
+@mixin font-size($size, $weight: 400, $line-height: auto, $color: white) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+  font-family: "Poppins", sans-serif;
+  color: $color;
+  transition: all 0.15s ease-out;
+}
+
+.h1 {
+  @include font-size(40px, 700, 56px);
+}
+.h2 {
+  @include font-size(32px, 700, 48px);
+}
+
+.p1-medium {
+  @include font-size(20px, 500, 24px);
+}
+.p2-regular {
+  @include font-size(16px, 400, 24px);
+}
+.p2-medium {
+  @include font-size(16px, 500, 24px);
+}
+.p3-regular {
+  @include font-size(14px, 400, 20px);
+}
+.p4-regular {
+  @include font-size(12px, 400, 16px);
+}
+
+.menue {
+  &:hover {
+    color: fontcolor.$purple-light;
+  }
+  &:active {
+    color: fontcolor.$orange;
+  }
+}

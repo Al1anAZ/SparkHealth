@@ -1,0 +1,60 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.footer {
+  background-color: color.$navy;
+  border-top: 1px solid color.$purple;
+  padding: {
+    top: 80px;
+    bottom: 80px;
+  };
+  @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: 80px, $wrap: nowrap);
+
+  &-top {
+    @include func.flex(row, $justify: space-between, $align: center, $wrap: nowrap);
+    width: 100%;
+  }
+
+  &-brand {
+    @include func.flex(column, $justify: flex-start, $align: flex-start, $gap: vars.$spacing-lg, $wrap: nowrap);
+    max-width: 559px;
+  }
+
+  &-actions {
+    @include func.flex(column, $justify: flex-start, $align: flex-end, $gap: vars.$spacing-lg, $wrap: nowrap);
+  }
+
+  &-nav {
+    @include func.flex(row, $justify: flex-start, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+    list-style: none;
+  }
+
+  &-bottom {
+    @include func.flex(row, $justify: space-between, $align: center, $wrap: nowrap);
+    width: 100%;
+  }
+
+  &-copyright {
+    @include func.flex(row, $justify: flex-start, $align: center, $gap: vars.$spacing-md, $wrap: nowrap);
+
+    span {
+      color: color.$light-gray;
+    }
+  }
+
+  &-legal {
+    @include func.flex(row, $justify: flex-start, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
+
+    a {
+      color: color.$light-gray;
+    }
+
+    &-divider {
+      display: block;
+      width: 1px;
+      height: vars.$spacing-md;
+      background-color: color.$light-gray;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.cta {
+  background: linear-gradient(to bottom, rgba(color.$navy, 0.1), rgba(color.$purple, 0.3));
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(column, $justify: center, $align: center, $gap: 40px, $wrap: nowrap);
+
+  &-partner-us {
+    border-radius: vars.$rounded;
+    background-color: rgba(color.$purple-light, 0.1);
+    padding: {
+      top: vars.$spacing-sm;
+      bottom: vars.$spacing-sm;
+      right: vars.$spacing-md;
+      left: vars.$spacing-md;
+    }
+  }
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(column, $justify: center, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
+    width: 100%;
+  }
+
+  &-heading {
+    @include func.flex(row, $justify: center, $align: center, $gap: vars.$spacing-md, $wrap: nowrap);
+  }
+
+  &-body {
+    max-width: 648px;
+    text-align: center;
+  }
+}
