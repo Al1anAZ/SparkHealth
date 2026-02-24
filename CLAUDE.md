@@ -40,13 +40,14 @@ src/style/
     vars.scss            # Reusable design tokens ($rounded, $spacing-*)
   components/            # Styles used on 2+ pages
     button.scss
+    excellence.scss
     header.scss
+    hero.scss
+    intro.scss
     logo.scss
     cta.scss
     footer.scss
   pages/                 # Styles used on exactly 1 page
-    home/
-      hero.scss
     why-sparkhealth/
       different.scss
     platform/

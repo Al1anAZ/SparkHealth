@@ -1,0 +1,41 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.intro {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(
+    column,
+    $justify: center,
+    $align: center,
+    $gap: 40px,
+    $wrap: nowrap
+  );
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(
+      column,
+      $justify: center,
+      $align: center,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+  }
+}
