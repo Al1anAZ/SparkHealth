@@ -1,0 +1,95 @@
+@use "../../utils/colors.scss" as color;
+@use "../../utils/func.scss" as func;
+@use "../../utils/vars.scss" as vars;
+
+.enterprise {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(
+    row,
+    $align: center,
+    $gap: vars.$spacing-lg,
+    $wrap: nowrap
+  );
+
+  &-text {
+    flex: 1;
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: 40px,
+      $wrap: nowrap
+    );
+  }
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    max-width: 520px;
+  }
+
+  &-visual {
+    width: 648px;
+    flex-shrink: 0;
+    padding: {
+      top: 80px;
+      bottom: 80px;
+    }
+    @include func.flex(column, $justify: center, $align: center, $wrap: nowrap);
+  }
+
+  &-diagram {
+    position: relative;
+    width: 512px;
+    height: 260px;
+  }
+
+  &-diagram-node {
+    position: absolute;
+    background-color: rgba(color.$orange, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+    white-space: nowrap;
+
+    &--core {
+      background-color: rgba(color.$orange, 0.2);
+    }
+  }
+
+  &-diagram-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    &--v {
+      width: 1px;
+    }
+
+    &--h {
+      height: 1px;
+    }
+  }
+}
