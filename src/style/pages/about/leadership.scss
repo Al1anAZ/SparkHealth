@@ -1,0 +1,117 @@
+@use "../../utils/colors.scss" as color;
+@use "../../utils/func.scss" as func;
+@use "../../utils/vars.scss" as vars;
+
+.leadership {
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include func.flex(
+    column,
+    $justify: flex-start,
+    $align: flex-start,
+    $gap: vars.$spacing-lg,
+    $wrap: nowrap
+  );
+
+  &-header {
+    @include func.flex(
+      column,
+      $justify: center,
+      $align: center,
+      $gap: 40px,
+      $wrap: nowrap
+    );
+    width: 100%;
+  }
+
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
+  &-content {
+    @include func.flex(
+      column,
+      $justify: center,
+      $align: center,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    max-width: 800px;
+    text-align: center;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vars.$spacing-lg;
+    width: 100%;
+  }
+
+  &-photo {
+    align-self: start;
+    background: linear-gradient(
+      to right,
+      rgba(color.$navy, 0.1),
+      rgba(color.$purple, 0.1)
+    );
+    padding: vars.$spacing-lg;
+    border-radius: 16px;
+    box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+
+    &-frame {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 12px;
+      width: 100%;
+
+      img {
+        width: 130%;
+        height: 130%;
+        object-fit: contain;
+        object-position: center -10px;
+      }
+
+      &-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: rgba(color.$purple, 0.5);
+        border-radius: 12px;
+      }
+    }
+  }
+
+  &-bio {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+
+    &--bottom {
+      justify-content: flex-end;
+    }
+  }
+
+  &-name {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-sm,
+      $wrap: nowrap
+    );
+  }
+}
