@@ -16,13 +16,133 @@
     top: 12px;
     bottom: 12px;
     right: 12px;
-    left: 24px;
+    left: vars.$spacing-lg;
   }
   margin: {
     top: vars.$spacing-md;
     bottom: vars.$spacing-md;
   }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    width: calc(100% - 16px);
+  }
   &-nav-links {
     @include func.flex(row, space-between, center, vars.$spacing-lg);
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  &-burger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      display: flex;
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: color.$navy;
+  @include func.flex(
+    column,
+    $justify: flex-start,
+    $align: center,
+    $gap: vars.$spacing-lg,
+    $wrap: nowrap
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  &-header {
+    @include func.flex(
+      row,
+      $justify: space-between,
+      $align: center,
+      $wrap: nowrap
+    );
+    width: calc(100% - 16px);
+    background-color: rgba(color.$navy, 0.8);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 12px;
+      bottom: 12px;
+      right: 12px;
+      left: vars.$spacing-lg;
+    }
+    margin-top: 16px;
+  }
+
+  &-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: vars.$spacing-lg;
+    height: vars.$spacing-lg;
+    opacity: 0.8;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-nav {
+    width: 100%;
+
+    ul {
+      @include func.flex(
+        column,
+        $justify: flex-start,
+        $align: center,
+        $gap: 0,
+        $wrap: nowrap
+      );
+      width: 100%;
+    }
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      @include func.flex(row, $align: center, $justify: center, $wrap: nowrap);
+      padding: vars.$spacing-md;
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Poppins", sans-serif;
+      transition: color 0.15s ease;
+
+      &[aria-current="page"] {
+        color: color.$orange;
+      }
+
+      &:hover {
+        color: color.$purple-light;
+      }
+    }
   }
 }

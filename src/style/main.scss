@@ -1,6 +1,7 @@
 @use "./utils/default.scss" as *;
 @use "./utils/font.scss";
 @use "./utils/liquid-glass.scss";
+@use "./utils//vars.scss" as vars;
 
 @use "./components/button.scss";
 @use "./components/logo.scss";
@@ -19,5 +20,12 @@
   padding: {
     left: 60px;
     right: 60px;
+  }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding: {
+      left: 16px;
+      right: 16px;
+    };
   }
 }

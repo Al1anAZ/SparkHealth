@@ -53,7 +53,51 @@
           <img src="/icon/arrow.svg" alt="" width="24" height="24" />
         </button>
       </div>
+      <button class="header-burger" id="header-burger" aria-label="Open menu">
+        <img src="/icon/menu.svg" alt="" width="24" height="24" />
+      </button>
     </header>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-header liquid-glass">
+        <a class="logo" href="/">
+          <img
+            src="/img/logo.svg"
+            alt="SparkHealth Logo"
+            width="64"
+            height="32"
+          />
+          <span class="p2-medium">SparkHealth</span>
+        </a>
+        <button
+          class="mobile-menu-close"
+          id="mobile-menu-close"
+          aria-label="Close menu"
+        >
+          <img src="/icon/cross.svg" alt="" width="24" height="24" />
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <ul>
+          <li><a href="/" class="p2-medium">Home</a></li>
+          <li>
+            <a href="/pages/why-sparkhealth/" class="p2-medium"
+              >Why SparkHealth</a
+            >
+          </li>
+          <li>
+            <a href="/pages/platform/" class="p2-medium" aria-current="page"
+              >Platform</a
+            >
+          </li>
+          <li><a href="/pages/about/" class="p2-medium">About Us</a></li>
+        </ul>
+      </nav>
+      <button class="button button--large p2-medium" data-modal-open>
+        Request a Conversation
+        <img src="/icon/arrow.svg" alt="" width="24" height="24" />
+      </button>
+    </div>
+    <script type="module" src="/src/js/burger.js"></script>
     <main>
       <section class="hero container">
         <div class="hero-content">
@@ -322,7 +366,7 @@
     <footer class="footer container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="logo">
+          <a class="logo" href="/">
             <img
               src="/img/logo.svg"
               alt="SparkHealth Logo"
@@ -330,7 +374,7 @@
               height="32"
             />
             <span class="p2-medium">SparkHealth</span>
-          </div>
+          </a>
           <p class="p2-regular">
             Enterprise ambient documentation for psychiatry &amp; behavioral
             health
@@ -446,7 +490,10 @@
               />
             </div>
           </div>
-          <button type="submit" class="button liquid-glass button--large p2-medium">
+          <button
+            type="submit"
+            class="button liquid-glass button--large p2-medium"
+          >
             Request a Conversation
             <img src="/icon/arrow.svg" alt="" width="24" height="24" />
           </button>

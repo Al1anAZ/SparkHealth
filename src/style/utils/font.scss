@@ -44,6 +44,9 @@
 }
 
 .menue {
+  &[aria-current="page"] {
+    color: fontcolor.$orange;
+  }
   &:hover {
     color: fontcolor.$purple-light;
   }
