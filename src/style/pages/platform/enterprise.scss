@@ -92,4 +92,30 @@
       height: 1px;
     }
   }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 40px;
+    align-items: unset;
+    &-text {
+      gap: 24px;
+    }
+    &-content {
+      gap: 16px;
+    }
+
+    &-visual {
+      padding: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &-diagram {
+      transform: scale(0.65);
+      transform-origin: top;
+      margin-bottom: -91px;
+    }
+  }
 }
