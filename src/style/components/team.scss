@@ -134,6 +134,49 @@
     }
   }
 
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    &-inner {
+      flex-direction: column;
+    }
+
+    &-text {
+      width: 100%;
+      gap: 24px;
+    }
+
+    &-content {
+      max-width: 100%;
+      gap: 16px;
+    }
+
+    &-cards {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &-card {
+      width: 100%;
+      height: auto;
+      flex: none;
+      gap: 16px;
+      &-photo {
+        height: 374px;
+      }
+    }
+
+    &-cover {
+      width: 100%;
+      flex: none;
+
+      &-photo {
+        height: 374px;
+      }
+    }
+  }
+
   &-cover {
     @include func.flex(
       column,

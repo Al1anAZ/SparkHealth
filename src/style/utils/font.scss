@@ -29,18 +29,30 @@
 
 .p1-medium {
   @include font-size(20px, 500, 24px);
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 .p2-regular {
   @include font-size(16px, 400, 24px);
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 .p2-medium {
   @include font-size(16px, 500, 24px);
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 .p3-regular {
   @include font-size(14px, 400, 20px);
-}
-.p4-regular {
-  @include font-size(12px, 400, 16px);
 }
 
 .menue {

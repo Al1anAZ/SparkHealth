@@ -114,4 +114,32 @@
       $wrap: nowrap
     );
   }
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding: {
+      top: 64px;
+      bottom: 64px;
+    }
+    &-grid {
+      grid-template-columns: 1fr;
+    }
+    &-header {
+      gap: 24px;
+    }
+    &-content {
+      gap: 16px;
+
+      & .h2,
+      .p2-regular {
+        text-align: start;
+      }
+    }
+    &-header,
+    &-content {
+      align-items: flex-start;
+    }
+    &-bio--bottom {
+      order: 1;
+      gap: 16px;
+    }
+  }
 }

@@ -77,4 +77,35 @@
       width: 100%;
     }
   }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    gap: 24px;
+    align-items: flex-start;
+
+    &-content {
+      gap: 16px;
+      align-items: flex-start;
+      & .h2,
+      .p2-regular {
+        text-align: start;
+      }
+    }
+    &-cards {
+      flex-direction: column;
+    }
+    &-card {
+      gap: 8px;
+      padding: 16px;
+      & .p1-medium,
+      .p3-regular {
+        text-align: start;
+      }
+
+      &:first-child {
+        margin-top: 16px;
+      }
+    }
+  }
 }

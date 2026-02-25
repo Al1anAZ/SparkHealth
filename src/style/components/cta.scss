@@ -67,4 +67,22 @@
     max-width: 648px;
     text-align: center;
   }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    gap: 24px;
+    &-heading {
+      gap: 8px;
+
+      & img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &-content {
+      gap: 16px;
+
+    }
+  }
 }

@@ -54,4 +54,43 @@
       object-fit: contain;
     }
   }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    flex-direction: column;
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    &-visual {
+      position: absolute;
+      opacity: 0.4;
+      width: 80%;
+      pointer-events: none;
+      top: 1%;
+      z-index: -1;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      gap: 24px;
+      &-text {
+        gap: 16px;
+      }
+    }
+
+    &-platform {
+      position: static;
+      opacity: 1;
+      z-index: 1;
+      height: auto;
+      width: 100%;
+
+      & img {
+        object-fit: contain;
+      }
+    }
+  }
 }

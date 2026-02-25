@@ -132,4 +132,12 @@
       }
     }
   }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding: 24px;
+
+    &-form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 }

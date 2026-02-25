@@ -14,6 +14,17 @@
     bottom: 120px;
   }
 
+  &-badge {
+    background-color: rgba(color.$purple-light, 0.1);
+    border-radius: vars.$rounded;
+    padding: {
+      top: 6px;
+      bottom: 6px;
+      left: vars.$spacing-md;
+      right: vars.$spacing-md;
+    }
+  }
+
   &-image {
     flex-shrink: 0;
     width: 648px;
@@ -60,6 +71,26 @@
     border-left: 1px solid color.$purple-light;
     padding-left: vars.$spacing-md;
     width: 100%;
-    color: color.$purple-light;
+    & .p2-medium {
+      color: color.$purple-light;
+    }
+  }
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    flex-direction: column-reverse;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 40px;
+
+    &-text {
+      gap: 24px;
+    }
+    &-content {
+      gap: 16px;
+    }
+
+    &-image {
+      width: 100%;
+    }
   }
 }

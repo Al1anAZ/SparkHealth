@@ -117,4 +117,29 @@
       color: color.$purple-light;
     }
   }
+  @media (max-width: vars.$breakpoint-mobile) {
+    flex-direction: column;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    &-text {
+      width: 100%;
+      gap: 24px;
+    }
+
+    &-content {
+      gap: 16px;
+    }
+
+    &-cards {
+      width: 100%;
+    }
+
+    &-card {
+      padding: 16px;
+      &-body {
+        gap: 8px;
+      }
+    }
+  }
 }
