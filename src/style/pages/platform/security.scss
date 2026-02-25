@@ -1,0 +1,65 @@
+@use "../../utils/colors.scss" as color;
+@use "../../utils/func.scss" as func;
+@use "../../utils/vars.scss" as vars;
+
+.security {
+  @include func.flex(
+    row,
+    $align: center,
+    $gap: vars.$spacing-lg,
+    $wrap: nowrap
+  );
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+
+  &-image {
+    flex-shrink: 0;
+    width: 648px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &-text {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: 40px,
+      $wrap: nowrap
+    );
+    flex: 1;
+  }
+
+  &-content {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    width: 100%;
+  }
+
+  &-list {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: 4px,
+      $wrap: nowrap
+    );
+    border-left: 1px solid color.$purple-light;
+    padding-left: vars.$spacing-md;
+    width: 100%;
+    color: color.$purple-light;
+  }
+}

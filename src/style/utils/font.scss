@@ -10,10 +10,10 @@
 }
 
 .h1 {
-  @include font-size(40px, 700, 56px);
+  @include font-size(40px, 600, 56px);
 }
 .h2 {
-  @include font-size(32px, 700, 48px);
+  @include font-size(32px, 600, 48px);
 }
 
 .p1-medium {

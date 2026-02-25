@@ -13,6 +13,7 @@
     <title>SparkHealth | Platform</title>
     <link rel="stylesheet" href="/src/style/main.scss" />
     <link rel="stylesheet" href="/src/style/pages/platform/enterprise.scss" />
+    <link rel="stylesheet" href="/src/style/pages/platform/security.scss" />
   </head>
   <body>
     <header class="header liquid-glass">
@@ -47,7 +48,7 @@
             </li>
           </ul>
         </nav>
-        <button class="button liquid-glass p2-medium">
+        <button class="button liquid-glass p2-medium" data-modal-open>
           Request a Conversation
           <img src="/icon/arrow.svg" alt="" width="24" height="24" />
         </button>
@@ -66,7 +67,10 @@
               enterprise system.
             </p>
           </div>
-          <button class="button liquid-glass button--large p2-medium">
+          <button
+            class="button liquid-glass button--large p2-medium"
+            data-modal-open
+          >
             Request a Conversation
             <img src="/icon/arrow.svg" alt="arrow" width="24" height="24" />
           </button>
@@ -93,7 +97,9 @@
           <p class="p1-medium">Process:</p>
           <div class="excellence-list">
             <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">Step 1</div>
+              <div class="excellence-card-icon p2-medium liquid-glass">
+                Step 1
+              </div>
               <div class="excellence-card-body">
                 <p class="p1-medium excellence-card-title">
                   Live Clinical Capture
@@ -104,7 +110,9 @@
               </div>
             </div>
             <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">Step 2</div>
+              <div class="excellence-card-icon p2-medium liquid-glass">
+                Step 2
+              </div>
               <div class="excellence-card-body">
                 <p class="p1-medium excellence-card-title">
                   AI Structuring &amp; Clinical Memory
@@ -117,7 +125,9 @@
               </div>
             </div>
             <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">Step 3</div>
+              <div class="excellence-card-icon p2-medium liquid-glass">
+                Step 3
+              </div>
               <div class="excellence-card-body">
                 <p class="p1-medium excellence-card-title">Compliance Layer</p>
                 <p class="p2-regular">
@@ -127,7 +137,9 @@
               </div>
             </div>
             <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">Step 4</div>
+              <div class="excellence-card-icon p2-medium liquid-glass">
+                Step 4
+              </div>
               <div class="excellence-card-body">
                 <p class="p1-medium excellence-card-title">
                   Billing &amp; Operational Integration
@@ -258,6 +270,33 @@
           </div>
         </div>
       </section>
+      <section class="security container">
+        <div class="security-image">
+          <img
+            src="/img/security-platform.webp"
+            alt="SparkHealth security platform dashboard"
+          />
+        </div>
+        <div class="security-text">
+          <div class="security-badge liquid-glass p2-medium">
+            Security &amp; Compliance
+          </div>
+          <div class="security-content">
+            <h2 class="h2">Security and Compliance by Design</h2>
+            <p class="p2-regular">
+              SparkHealth operates within strict data protection and regulatory
+              frameworks appropriate for behavioral health enterprises.
+            </p>
+          </div>
+          <div class="security-list">
+            <p class="p2-medium">HIPAA-aligned infrastructure</p>
+            <p class="p2-medium">End-to-end encryption</p>
+            <p class="p2-medium">Secure data storage</p>
+            <p class="p2-medium">Access controls and audit logs</p>
+            <p class="p2-medium">AI governance oversight</p>
+          </div>
+        </div>
+      </section>
       <section class="cta container">
         <div class="cta-partner-us liquid-glass p2-medium">Partner with Us</div>
         <div class="cta-content">
@@ -271,7 +310,10 @@
             defines the future of behavioral health, we welcome a conversation
           </p>
         </div>
-        <button class="button liquid-glass button--large p2-medium">
+        <button
+          class="button liquid-glass button--large p2-medium"
+          data-modal-open
+        >
           Request a Conversation
           <img src="/icon/arrow.svg" alt="arrow" width="24" height="24" />
         </button>
@@ -309,7 +351,10 @@
               <a href="/pages/about/" class="p2-medium menue">About Us</a>
             </li>
           </ul>
-          <button class="button liquid-glass button--large p2-medium">
+          <button
+            class="button liquid-glass button--large p2-medium"
+            data-modal-open
+          >
             Request a Conversation
             <img src="/icon/arrow.svg" alt="" width="24" height="24" />
           </button>
@@ -329,6 +374,86 @@
         </div>
       </div>
     </footer>
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+      <div
+        class="modal liquid-glass"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button class="modal-close" id="modal-close" aria-label="Close dialog">
+          <img src="/icon/cross.svg" alt="" width="24" height="24" />
+        </button>
+        <div class="modal-header">
+          <h2 class="h2" id="modal-title">Start a Conversation</h2>
+          <p class="p2-regular">
+            Tell us a bit about your organization. Our team will follow up to
+            schedule a discussion
+          </p>
+        </div>
+        <form class="modal-form" novalidate>
+          <div class="modal-form-grid">
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-full-name">Full Name</label>
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-full-name"
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-work-email"
+                >Work Email</label
+              >
+              <input
+                class="modal-input-field"
+                type="email"
+                id="modal-work-email"
+                placeholder="Enter your work email"
+              />
+            </div>
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-role">Role</label>
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-role"
+                placeholder="Enter your role"
+              />
+            </div>
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-organization"
+                >Organization</label
+              >
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-organization"
+                placeholder="Enter your organization name"
+              />
+            </div>
+            <div class="modal-input modal-input--full">
+              <label class="p3-regular" for="modal-message"
+                >Message
+                <span class="modal-input-optional">(optional)</span></label
+              >
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-message"
+                placeholder="Enter your message"
+              />
+            </div>
+          </div>
+          <button type="submit" class="button liquid-glass button--large p2-medium">
+            Request a Conversation
+            <img src="/icon/arrow.svg" alt="" width="24" height="24" />
+          </button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="/src/js/modal.js"></script>
     <svg style="display: none" aria-hidden="true">
       <defs>
         <filter

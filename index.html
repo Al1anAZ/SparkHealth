@@ -43,7 +43,7 @@
             </li>
           </ul>
         </nav>
-        <button class="button liquid-glass p2-medium">
+        <button class="button liquid-glass p2-medium" data-modal-open>
           Request a Conversation
           <img src="/icon/arrow.svg" alt="" width="24" height="24" />
         </button>
@@ -61,7 +61,10 @@
               longitudinal care matter most
             </p>
           </div>
-          <button class="button liquid-glass button--large p2-medium">
+          <button
+            class="button liquid-glass button--large p2-medium"
+            data-modal-open
+          >
             Request a Conversation
             <img src="/icon/arrow.svg" alt="arrow" width="24" height="24" />
           </button>
@@ -208,7 +211,7 @@
       <section class="team container">
         <div class="team-inner">
           <div class="team-text">
-            <div class="team-badge liquid-glass p2-medium">team Us</div>
+            <div class="team-badge liquid-glass p2-medium">About Us</div>
             <div class="team-content">
               <h2 class="h2">Leadership You Can Trust</h2>
               <p class="p2-regular">
@@ -228,6 +231,7 @@
                 <img
                   src="/img/van-gogh.webp"
                   alt="Dr. Ethan Caldwell, Founder and Chief Medical Officer"
+                  style="object-position: 25px -25px"
                 />
                 <div class="team-card-photo-overlay"></div>
               </div>
@@ -265,7 +269,10 @@
             defines the future of behavioral health, we welcome a conversation
           </p>
         </div>
-        <button class="button liquid-glass button--large p2-medium">
+        <button
+          class="button liquid-glass button--large p2-medium"
+          data-modal-open
+        >
           Request a Conversation
           <img src="/icon/arrow.svg" alt="arrow" width="24" height="24" />
         </button>
@@ -303,7 +310,10 @@
               <a href="/pages/team/" class="p2-medium menue">team Us</a>
             </li>
           </ul>
-          <button class="button liquid-glass button--large p2-medium">
+          <button
+            class="button liquid-glass button--large p2-medium"
+            data-modal-open
+          >
             Request a Conversation
             <img src="/icon/arrow.svg" alt="" width="24" height="24" />
           </button>
@@ -323,6 +333,89 @@
         </div>
       </div>
     </footer>
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+      <div
+        class="modal liquid-glass"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button class="modal-close" id="modal-close" aria-label="Close dialog">
+          <img src="/icon/cross.svg" alt="" width="24" height="24" />
+        </button>
+        <div class="modal-header">
+          <h2 class="h2" id="modal-title">Start a Conversation</h2>
+          <p class="p2-regular">
+            Tell us a bit about your organization. Our team will follow up to
+            schedule a discussion
+          </p>
+        </div>
+        <form class="modal-form" novalidate>
+          <div class="modal-form-grid">
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-full-name">Full Name</label>
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-full-name"
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-work-email"
+                >Work Email</label
+              >
+              <input
+                class="modal-input-field"
+                type="email"
+                id="modal-work-email"
+                placeholder="Enter your work email"
+              />
+            </div>
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-role">Role</label>
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-role"
+                placeholder="Enter your role"
+              />
+            </div>
+            <div class="modal-input">
+              <label class="p3-regular" for="modal-organization"
+                >Organization</label
+              >
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-organization"
+                placeholder="Enter your organization name"
+              />
+            </div>
+            <div class="modal-input modal-input--full">
+              <label class="p3-regular" for="modal-message"
+                >Message
+                <span class="modal-input-optional">(optional)</span></label
+              >
+              <input
+                class="modal-input-field"
+                type="text"
+                id="modal-message"
+                placeholder="Enter your message"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="button liquid-glass button--large p2-medium"
+          >
+            Request a Conversation
+            <img src="/icon/arrow.svg" alt="" width="24" height="24" />
+          </button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="/src/js/modal.js"></script>
     <svg style="display: none" aria-hidden="true">
       <defs>
         <filter

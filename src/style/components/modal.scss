@@ -1,0 +1,135 @@
+@use "../utils/colors.scss" as color;
+@use "../utils/func.scss" as func;
+@use "../utils/vars.scss" as vars;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(color.$navy, 0.2);
+  backdrop-filter: blur(2.5px);
+  @include func.flex(row, $align: center, $justify: center, $wrap: nowrap);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modal {
+  background: color.$navy;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+  position: relative;
+  width: 100%;
+  max-width: 648px;
+  margin: vars.$spacing-lg;
+  @include func.flex(
+    column,
+    $justify: flex-start,
+    $align: flex-start,
+    $gap: vars.$spacing-lg,
+    $wrap: nowrap
+  );
+
+  &-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-header {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $gap: vars.$spacing-sm,
+      $wrap: nowrap
+    );
+    width: 100%;
+    text-align: center;
+  }
+
+  &-form {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-lg,
+      $wrap: nowrap
+    );
+    width: 100%;
+
+    & button {
+      width: 100%;
+    }
+  }
+
+  &-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vars.$spacing-md;
+    width: 100%;
+  }
+
+  &-input {
+    @include func.flex(
+      column,
+      $justify: flex-start,
+      $align: flex-start,
+      $gap: vars.$spacing-sm,
+      $wrap: nowrap
+    );
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+
+    &-optional {
+      color: #6c757d;
+    }
+
+    &-field {
+      width: 100%;
+      height: 44px;
+      background: color.$navy;
+      border: 1px solid #6c757d;
+      border-radius: 6px;
+      padding: 0 12px;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      transition: border-color 0.15s ease;
+
+      &::placeholder {
+        color: #6c757d;
+      }
+
+      &:hover {
+        border-width: 2px;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: color.$purple;
+        border-width: 1px;
+      }
+    }
+  }
+}
