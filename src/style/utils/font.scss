@@ -1,4 +1,5 @@
 @use "./colors.scss" as fontcolor;
+@use "./vars.scss" as vars;
 
 @mixin font-size($size, $weight: 400, $line-height: auto, $color: white) {
   font-size: $size;
@@ -11,9 +12,19 @@
 
 .h1 {
   @include font-size(40px, 600, 56px);
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }
 .h2 {
   @include font-size(32px, 600, 48px);
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .p1-medium {

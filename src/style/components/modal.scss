@@ -7,7 +7,6 @@
   inset: 0;
   z-index: 1000;
   background: rgba(color.$navy, 0.2);
-  backdrop-filter: blur(2.5px);
   @include func.flex(row, $align: center, $justify: center, $wrap: nowrap);
   opacity: 0;
   pointer-events: none;
@@ -16,6 +15,7 @@
   &.is-open {
     opacity: 1;
     pointer-events: all;
+    backdrop-filter: blur(2.5px);
   }
 }
 
