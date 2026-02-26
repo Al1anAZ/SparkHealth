@@ -82,6 +82,14 @@
     box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
     padding: vars.$spacing-lg;
     width: 100%;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      background: rgba(color.$purple, 0.1);
+      box-shadow: 0 0 16px 0 rgba(color.$purple-light, 0.1);
+    }
 
     &-icon {
       @include func.flex(

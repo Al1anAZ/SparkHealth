@@ -40,14 +40,26 @@
   &-item {
     background: linear-gradient(
       to right,
-      rgba(color.$navy, 0.2),
+      rgba(color.$purple, 0.4),
+      rgba(color.$navy, 0.4) 50%,
+      rgba(color.$navy, 0.2) 50%,
       rgba(color.$purple, 0.2)
     );
+    background-size: 200% 100%;
+    background-position: 100% 0;
     border-radius: vars.$spacing-md;
     padding: vars.$spacing-lg;
     box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
     min-height: 104px;
     width: 100%;
+    transition:
+      background-position 0.3s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      background-position: 0% 0;
+      box-shadow: 0 0 16px 0 rgba(color.$purple-light, 0.1);
+    }
     @include func.flex(
       row,
       $justify: flex-start,
