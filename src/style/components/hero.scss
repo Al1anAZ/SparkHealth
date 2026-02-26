@@ -1,5 +1,5 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
+@use "../utils/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
 
 .hero {
@@ -8,7 +8,7 @@
     rgba(color.$navy, 0.1),
     rgba(color.$purple, 0.3)
   );
-  @include func.flex(
+  @include mix.flex(
     row,
     $justify: flex-end,
     $align: center,
@@ -23,7 +23,7 @@
 
   &-content {
     flex: 1;
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: center,
       $align: flex-start,
@@ -32,7 +32,7 @@
     );
 
     &-text {
-      @include func.flex(
+      @include mix.flex(
         column,
         $justify: flex-start,
         $align: flex-start,

@@ -1,13 +1,13 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
 @use "../utils/vars.scss" as vars;
+@use "../utils/mixins.scss" as mix;
 
 .feature-list {
   padding: {
-    top: 120px;
-    bottom: 120px;
+    top: vars.$section-padding;
+    bottom: vars.$section-padding;
   }
-  @include func.flex(
+  @include mix.flex(
     column,
     $justify: center,
     $align: center,
@@ -15,19 +15,13 @@
     $wrap: nowrap
   );
   text-align: center;
+
   &-badge {
-    background-color: rgba(color.$purple-light, 0.1);
-    border-radius: vars.$rounded;
-    padding: {
-      top: 6px;
-      bottom: 6px;
-      left: vars.$spacing-md;
-      right: vars.$spacing-md;
-    }
+    @include mix.badge();
   }
 
   &-list {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -38,35 +32,18 @@
   }
 
   &-item {
-    background: linear-gradient(
-      to right,
-      rgba(color.$purple, 0.4),
-      rgba(color.$navy, 0.4) 50%,
-      rgba(color.$navy, 0.2) 50%,
-      rgba(color.$purple, 0.2)
-    );
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    border-radius: vars.$spacing-md;
-    padding: vars.$spacing-lg;
-    box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
-    min-height: 104px;
-    width: 100%;
-    transition:
-      background-position 0.3s ease,
-      box-shadow 0.2s ease;
-
-    &:hover {
-      background-position: 0% 0;
-      box-shadow: 0 0 16px 0 rgba(color.$purple-light, 0.1);
-    }
-    @include func.flex(
+    @include mix.gradient-card(0.4);
+    @include mix.flex(
       row,
       $justify: flex-start,
       $align: center,
       $gap: vars.$spacing-lg,
       $wrap: nowrap
     );
+    border-radius: vars.$spacing-md;
+    padding: vars.$spacing-lg;
+    min-height: 104px;
+    width: 100%;
 
     &-title {
       color: color.$purple-light;
@@ -80,8 +57,8 @@
   }
 
   @media (max-width: vars.$breakpoint-mobile) {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: vars.$section-padding-mobile;
+    padding-bottom: vars.$section-padding-mobile;
     align-items: flex-start;
     text-align: start;
     gap: 24px;

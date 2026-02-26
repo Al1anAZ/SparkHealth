@@ -1,22 +1,17 @@
 @use "../../utils/colors.scss" as color;
-@use "../../utils/func.scss" as func;
 @use "../../utils/vars.scss" as vars;
+@use "../../utils/mixins.scss" as mix;
 
 .enterprise {
   padding: {
-    top: 120px;
-    bottom: 120px;
+    top: vars.$section-padding;
+    bottom: vars.$section-padding;
   }
-  @include func.flex(
-    row,
-    $align: center,
-    $gap: vars.$spacing-lg,
-    $wrap: nowrap
-  );
+  @include mix.flex(row, $align: center, $gap: vars.$spacing-lg, $wrap: nowrap);
 
   &-text {
     flex: 1;
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -26,18 +21,11 @@
   }
 
   &-badge {
-    background-color: rgba(color.$purple-light, 0.1);
-    border-radius: vars.$rounded;
-    padding: {
-      top: 6px;
-      bottom: 6px;
-      left: vars.$spacing-md;
-      right: vars.$spacing-md;
-    }
+    @include mix.badge();
   }
 
   &-content {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -54,7 +42,7 @@
       top: 80px;
       bottom: 80px;
     }
-    @include func.flex(column, $justify: center, $align: center, $wrap: nowrap);
+    @include mix.flex(column, $justify: center, $align: center, $wrap: nowrap);
   }
 
   &-diagram {

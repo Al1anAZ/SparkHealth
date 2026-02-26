@@ -1,5 +1,5 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
+@use "../utils/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
 
 .modal-overlay {
@@ -7,7 +7,7 @@
   inset: 0;
   z-index: 1000;
   background: rgba(color.$navy, 0.2);
-  @include func.flex(row, $align: center, $justify: center, $wrap: nowrap);
+  @include mix.flex(row, $align: center, $justify: center, $wrap: nowrap);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -28,7 +28,7 @@
   width: 100%;
   max-width: 648px;
   margin: vars.$spacing-lg;
-  @include func.flex(
+  @include mix.flex(
     column,
     $justify: flex-start,
     $align: flex-start,
@@ -56,7 +56,7 @@
   }
 
   &-header {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $gap: vars.$spacing-sm,
@@ -67,7 +67,7 @@
   }
 
   &-form {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -89,7 +89,7 @@
   }
 
   &-input {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,

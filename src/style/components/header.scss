@@ -1,5 +1,5 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
+@use "../utils/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
 
 .header {
@@ -10,7 +10,7 @@
   border-radius: vars.$rounded;
   background-color: rgba(color.$navy, $alpha: 0.8);
 
-  @include func.flex(row, $justify: space-between);
+  @include mix.flex(row, $justify: space-between);
 
   padding: {
     top: 12px;
@@ -27,7 +27,7 @@
     width: calc(100% - 16px);
   }
   &-nav-links {
-    @include func.flex(row, space-between, center, vars.$spacing-lg);
+    @include mix.flex(row, space-between, center, vars.$spacing-lg);
 
     @media (max-width: vars.$breakpoint-mobile) {
       display: none;
@@ -54,7 +54,7 @@
   inset: 0;
   z-index: 1000;
   background: color.$navy;
-  @include func.flex(
+  @include mix.flex(
     column,
     $justify: flex-start,
     $align: center,
@@ -75,7 +75,7 @@
   }
 
   &-header {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: space-between,
       $align: center,
@@ -112,7 +112,7 @@
     width: 100%;
 
     ul {
-      @include func.flex(
+      @include mix.flex(
         column,
         $justify: flex-start,
         $align: center,
@@ -127,7 +127,7 @@
     }
 
     a {
-      @include func.flex(row, $align: center, $justify: center, $wrap: nowrap);
+      @include mix.flex(row, $align: center, $justify: center, $wrap: nowrap);
       padding: vars.$spacing-md;
       width: 100%;
       color: white;

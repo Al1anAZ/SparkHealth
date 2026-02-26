@@ -1,13 +1,13 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
 @use "../utils/vars.scss" as vars;
+@use "../utils/mixins.scss" as mix;
 
 .excellence {
   padding: {
-    top: 120px;
-    bottom: 120px;
+    top: vars.$section-padding;
+    bottom: vars.$section-padding;
   }
-  @include func.flex(
+  @include mix.flex(
     row,
     $justify: flex-start,
     $align: flex-start,
@@ -16,7 +16,7 @@
   );
 
   &-text {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: center,
       $align: flex-start,
@@ -27,18 +27,11 @@
   }
 
   &-badge {
-    border-radius: vars.$rounded;
-    background-color: rgba(color.$purple-light, 0.1);
-    padding: {
-      top: 6px;
-      bottom: 6px;
-      left: vars.$spacing-md;
-      right: vars.$spacing-md;
-    }
+    @include mix.badge();
   }
 
   &-content {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -48,7 +41,7 @@
   }
 
   &-cards {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: center,
       $align: center,
@@ -59,7 +52,7 @@
   }
 
   &-list {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -70,7 +63,7 @@
   }
 
   &-card {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -92,7 +85,7 @@
     }
 
     &-icon {
-      @include func.flex(
+      @include mix.flex(
         row,
         $justify: center,
         $align: center,
@@ -111,7 +104,7 @@
     }
 
     &-body {
-      @include func.flex(
+      @include mix.flex(
         column,
         $justify: flex-start,
         $align: flex-start,
@@ -125,10 +118,11 @@
       color: color.$purple-light;
     }
   }
+
   @media (max-width: vars.$breakpoint-mobile) {
     flex-direction: column;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: vars.$section-padding-mobile;
+    padding-bottom: vars.$section-padding-mobile;
 
     &-text {
       width: 100%;

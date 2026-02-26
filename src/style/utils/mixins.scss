@@ -1,0 +1,44 @@
+@use "./colors.scss" as color;
+@use "./vars.scss" as vars;
+
+@mixin flex(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $gap: 0,
+  $wrap: wrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+@mixin badge() {
+  background-color: rgba(color.$purple-light, 0.1);
+  border-radius: vars.$rounded;
+  padding: 6px vars.$spacing-md;
+}
+
+@mixin gradient-card($hover-opacity: 0.3) {
+  background: linear-gradient(
+    to right,
+    rgba(color.$purple, $hover-opacity),
+    rgba(color.$navy, $hover-opacity) 50%,
+    rgba(color.$navy, 0.2) 50%,
+    rgba(color.$purple, 0.2)
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  box-shadow: 0 0 12px 0 rgba(color.$purple-light, 0.1);
+  transition:
+    background-position 0.3s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    background-position: 0% 0;
+    box-shadow: 0 0 16px 0 rgba(color.$purple-light, 0.1);
+  }
+}

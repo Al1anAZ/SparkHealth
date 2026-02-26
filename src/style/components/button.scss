@@ -1,5 +1,5 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
+@use "../utils/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
 
 .button {
@@ -11,12 +11,7 @@
     left: vars.$spacing-md;
     right: vars.$spacing-md;
   }
-  @include func.flex(
-    row,
-    $align: center,
-    $gap: vars.$spacing-sm,
-    $wrap: nowrap
-  );
+  @include mix.flex(row, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
   transition: background-color 0.15s ease-in-out;
 
   &:hover {

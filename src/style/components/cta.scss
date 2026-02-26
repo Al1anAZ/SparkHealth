@@ -1,6 +1,6 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
 @use "../utils/vars.scss" as vars;
+@use "../utils/mixins.scss" as mix;
 
 .cta {
   background: linear-gradient(
@@ -9,10 +9,10 @@
     rgba(color.$purple, 0.3)
   );
   padding: {
-    top: 120px;
-    bottom: 120px;
+    top: vars.$section-padding;
+    bottom: vars.$section-padding;
   }
-  @include func.flex(
+  @include mix.flex(
     column,
     $justify: center,
     $align: center,
@@ -32,18 +32,11 @@
   }
 
   &-badge {
-    background-color: rgba(color.$purple-light, 0.1);
-    border-radius: vars.$rounded;
-    padding: {
-      top: 6px;
-      bottom: 6px;
-      left: vars.$spacing-md;
-      right: vars.$spacing-md;
-    }
+    @include mix.badge();
   }
 
   &-content {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: center,
       $align: center,
@@ -54,7 +47,7 @@
   }
 
   &-heading {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: center,
       $align: center,
@@ -69,8 +62,8 @@
   }
 
   @media (max-width: vars.$breakpoint-mobile) {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: vars.$section-padding-mobile;
+    padding-bottom: vars.$section-padding-mobile;
     gap: 24px;
     &-heading {
       gap: 8px;
@@ -82,7 +75,6 @@
     }
     &-content {
       gap: 16px;
-
     }
   }
 }

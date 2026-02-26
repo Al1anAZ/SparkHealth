@@ -1,13 +1,13 @@
 @use "../../utils/colors.scss" as color;
-@use "../../utils/func.scss" as func;
 @use "../../utils/vars.scss" as vars;
+@use "../../utils/mixins.scss" as mix;
 
 .leadership {
   padding: {
-    top: 120px;
-    bottom: 120px;
+    top: vars.$section-padding;
+    bottom: vars.$section-padding;
   }
-  @include func.flex(
+  @include mix.flex(
     column,
     $justify: flex-start,
     $align: flex-start,
@@ -16,7 +16,7 @@
   );
 
   &-header {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: center,
       $align: center,
@@ -27,18 +27,11 @@
   }
 
   &-badge {
-    background-color: rgba(color.$purple-light, 0.1);
-    border-radius: vars.$rounded;
-    padding: {
-      top: 6px;
-      bottom: 6px;
-      left: vars.$spacing-md;
-      right: vars.$spacing-md;
-    }
+    @include mix.badge();
   }
 
   &-content {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: center,
       $align: center,
@@ -92,7 +85,7 @@
   }
 
   &-bio {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -106,7 +99,7 @@
   }
 
   &-name {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -116,8 +109,8 @@
   }
   @media (max-width: vars.$breakpoint-mobile) {
     padding: {
-      top: 64px;
-      bottom: 64px;
+      top: vars.$section-padding-mobile;
+      bottom: vars.$section-padding-mobile;
     }
     &-grid {
       grid-template-columns: 1fr;

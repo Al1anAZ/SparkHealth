@@ -1,5 +1,5 @@
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
+@use "../utils/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
 
 .footer {
@@ -9,7 +9,7 @@
     top: 80px;
     bottom: 80px;
   }
-  @include func.flex(
+  @include mix.flex(
     column,
     $justify: flex-start,
     $align: flex-start,
@@ -18,7 +18,7 @@
   );
 
   &-top {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: space-between,
       $align: center,
@@ -28,7 +28,7 @@
   }
 
   &-brand {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-start,
@@ -39,7 +39,7 @@
   }
 
   &-actions {
-    @include func.flex(
+    @include mix.flex(
       column,
       $justify: flex-start,
       $align: flex-end,
@@ -49,7 +49,7 @@
   }
 
   &-nav {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: flex-start,
       $align: center,
@@ -60,7 +60,7 @@
   }
 
   &-bottom {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: space-between,
       $align: center,
@@ -78,7 +78,6 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 32px;
-
     }
 
     &-brand {
@@ -87,7 +86,6 @@
 
     &-actions {
       align-items: flex-start;
-
     }
 
     &-nav {
@@ -104,7 +102,7 @@
   }
 
   &-copyright {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: flex-start,
       $align: center,
@@ -118,7 +116,7 @@
   }
 
   &-legal {
-    @include func.flex(
+    @include mix.flex(
       row,
       $justify: flex-start,
       $align: center,

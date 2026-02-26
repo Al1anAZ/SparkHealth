@@ -1,6 +1,6 @@
-@use "../utils/func.scss" as func;
+@use "../utils/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
 
 .logo {
-  @include func.flex(row, $gap: vars.$spacing-sm, $align: center);
+  @include mix.flex(row, $gap: vars.$spacing-sm, $align: center);
 }
