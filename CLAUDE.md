@@ -177,6 +177,30 @@ After adding or editing any code, run Prettier to format all changed files:
 npx prettier --write .
 ```
 
+### Scroll Animation
+
+`src/js/scroll-animation.js` provides a reusable card-by-card reveal with scroll lock (sticky positioning + tall wrapper). Desktop-only — on mobile (`≤1000px`) cards remain a normal vertical list.
+
+**When to use:** any section where cards should reveal one at a time as the user scrolls through.
+
+**Required data attributes:**
+
+| Attribute                   | Element                      | Role                                |
+| --------------------------- | ---------------------------- | ----------------------------------- |
+| `data-scroll-cards-section` | `<div>` wrapping the section | marks as scroll animation container |
+| `data-scroll-sticky`        | the `<section>` inside       | sticky anchor                       |
+| `data-scroll-cards`         | the cards list container     | JS sets height here                 |
+| `data-scroll-card`          | each card element            | JS sets `data-card-state`           |
+
+**To apply to a new section:**
+
+1. Wrap the `<section>` in `<div data-scroll-cards-section>`
+2. Add `data-scroll-sticky` to the `<section>`
+3. Add `data-scroll-cards` to the cards list container
+4. Add `data-scroll-card` to each card
+5. Add `<script type="module" src="/src/js/scroll-animation.js"></script>` to the page
+6. Add corresponding CSS using `[data-scroll-cards-section] &` selector pattern (see `excellence.scss`)
+
 ### Additional
 
 Dont add comments

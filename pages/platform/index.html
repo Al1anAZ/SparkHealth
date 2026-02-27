@@ -123,79 +123,83 @@
           <img src="/img/hero-platform.webp" alt="platform" />
         </div>
       </section>
-      <section class="excellence container">
-        <div class="excellence-text">
-          <div class="excellence-badge liquid-glass p2-medium">
-            How It Works
-          </div>
-          <div class="excellence-content">
-            <h2 class="h2">From Encounter to Audit-Ready Documentation</h2>
-            <p class="p2-regular">
-              AI-driven workflows transform live clinical sessions into
-              structured, compliant documentation aligned with behavioral health
-              standards
-            </p>
-          </div>
-        </div>
-        <div class="excellence-cards">
-          <p class="p1-medium">Process:</p>
-          <div class="excellence-list">
-            <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">
-                Step 1
-              </div>
-              <div class="excellence-card-body">
-                <p class="p1-medium excellence-card-title">
-                  Live Clinical Capture
-                </p>
-                <p class="p2-regular">
-                  Secure ambient audio capture during clinical sessions
-                </p>
-              </div>
+      <div data-scroll-cards-section>
+        <section class="excellence container" data-scroll-sticky>
+          <div class="excellence-text">
+            <div class="excellence-badge liquid-glass p2-medium">
+              How It Works
             </div>
-            <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">
-                Step 2
-              </div>
-              <div class="excellence-card-body">
-                <p class="p1-medium excellence-card-title">
-                  AI Structuring &amp; Clinical Memory
-                </p>
-                <p class="p2-regular">
-                  Natural language processing transforms encounters into
-                  structured documentation aligned with treatment plans and
-                  longitudinal care history
-                </p>
-              </div>
-            </div>
-            <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">
-                Step 3
-              </div>
-              <div class="excellence-card-body">
-                <p class="p1-medium excellence-card-title">Compliance Layer</p>
-                <p class="p2-regular">
-                  Built-in logic supports medical necessity language, ICD
-                  alignment, and documentation standards
-                </p>
-              </div>
-            </div>
-            <div class="excellence-card liquid-glass">
-              <div class="excellence-card-icon p2-medium liquid-glass">
-                Step 4
-              </div>
-              <div class="excellence-card-body">
-                <p class="p1-medium excellence-card-title">
-                  Billing &amp; Operational Integration
-                </p>
-                <p class="p2-regular">
-                  Structured output integrates with EHR and billing workflows
-                </p>
-              </div>
+            <div class="excellence-content">
+              <h2 class="h2">From Encounter to Audit-Ready Documentation</h2>
+              <p class="p2-regular">
+                AI-driven workflows transform live clinical sessions into
+                structured, compliant documentation aligned with behavioral
+                health standards
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+          <div class="excellence-cards">
+            <p class="p1-medium">Process:</p>
+            <div class="excellence-list" data-scroll-cards>
+              <div class="excellence-card liquid-glass" data-scroll-card>
+                <div class="excellence-card-icon p2-medium liquid-glass">
+                  Step 1
+                </div>
+                <div class="excellence-card-body">
+                  <p class="p1-medium excellence-card-title">
+                    Live Clinical Capture
+                  </p>
+                  <p class="p2-regular">
+                    Secure ambient audio capture during clinical sessions
+                  </p>
+                </div>
+              </div>
+              <div class="excellence-card liquid-glass" data-scroll-card>
+                <div class="excellence-card-icon p2-medium liquid-glass">
+                  Step 2
+                </div>
+                <div class="excellence-card-body">
+                  <p class="p1-medium excellence-card-title">
+                    AI Structuring &amp; Clinical Memory
+                  </p>
+                  <p class="p2-regular">
+                    Natural language processing transforms encounters into
+                    structured documentation aligned with treatment plans and
+                    longitudinal care history
+                  </p>
+                </div>
+              </div>
+              <div class="excellence-card liquid-glass" data-scroll-card>
+                <div class="excellence-card-icon p2-medium liquid-glass">
+                  Step 3
+                </div>
+                <div class="excellence-card-body">
+                  <p class="p1-medium excellence-card-title">
+                    Compliance Layer
+                  </p>
+                  <p class="p2-regular">
+                    Built-in logic supports medical necessity language, ICD
+                    alignment, and documentation standards
+                  </p>
+                </div>
+              </div>
+              <div class="excellence-card liquid-glass" data-scroll-card>
+                <div class="excellence-card-icon p2-medium liquid-glass">
+                  Step 4
+                </div>
+                <div class="excellence-card-body">
+                  <p class="p1-medium excellence-card-title">
+                    Billing &amp; Operational Integration
+                  </p>
+                  <p class="p2-regular">
+                    Structured output integrates with EHR and billing workflows
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
       <section class="card-grid container">
         <div class="card-grid-badge liquid-glass p2-medium">Core Modules</div>
         <div class="card-grid-content">
@@ -522,6 +526,7 @@
       </div>
     </div>
     <script type="module" src="/src/js/modal.js"></script>
+    <script type="module" src="/src/js/scroll-animation.js"></script>
     <svg style="display: none" aria-hidden="true">
       <defs>
         <filter
