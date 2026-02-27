@@ -2,6 +2,16 @@
 @use "../utils/vars.scss" as vars;
 @use "../utils/mixins.scss" as mix;
 
+@keyframes star-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
+
 .cta {
   background: linear-gradient(
     to bottom,
@@ -54,6 +64,10 @@
       $gap: vars.$spacing-md,
       $wrap: nowrap
     );
+
+    & img {
+      animation: star-pulse 2s ease-in-out infinite;
+    }
   }
 
   &-body {

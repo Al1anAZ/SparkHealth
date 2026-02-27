@@ -1,7 +1,7 @@
 import { observeAnimate } from "./observe-animate.js";
 
 observeAnimate(
-  ".enterprise-diagram",
+  ".feature-list-list",
   (el) => el.setAttribute("data-animated", ""),
   { threshold: 0.5 },
 );

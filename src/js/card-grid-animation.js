@@ -1,7 +1,7 @@
 import { observeAnimate } from "./observe-animate.js";
 
 observeAnimate(
-  ".enterprise-diagram",
+  ".card-grid-cards",
   (el) => el.setAttribute("data-animated", ""),
-  { threshold: 0.5 },
+  { threshold: 0.5, all: true },
 );

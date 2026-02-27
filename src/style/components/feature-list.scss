@@ -2,6 +2,17 @@
 @use "../utils/vars.scss" as vars;
 @use "../utils/mixins.scss" as mix;
 
+@keyframes feature-item-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .feature-list {
   padding: {
     top: vars.$section-padding;
@@ -53,6 +64,28 @@
     &-title {
       flex: 1;
       text-align: start;
+    }
+  }
+
+  @media (min-width: calc(vars.$breakpoint-mobile + 1px)) {
+    &-item {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    &-list[data-animated] {
+      .feature-list-item:nth-child(1) {
+        animation: feature-item-fade-up 0.5s ease-out 0ms both;
+      }
+      .feature-list-item:nth-child(2) {
+        animation: feature-item-fade-up 0.5s ease-out 120ms both;
+      }
+      .feature-list-item:nth-child(3) {
+        animation: feature-item-fade-up 0.5s ease-out 240ms both;
+      }
+      .feature-list-item:nth-child(4) {
+        animation: feature-item-fade-up 0.5s ease-out 360ms both;
+      }
     }
   }
 

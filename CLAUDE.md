@@ -36,24 +36,30 @@ src/style/
     default.scss         # Browser CSS reset
     colors.scss          # All color variables
     font.scss            # Typography mixin + utility classes
-    func.scss            # Flexbox mixin
+    mixins.scss          # flex(), badge(), gradient-card() mixins
     vars.scss            # Reusable design tokens ($rounded, $spacing-*)
+    liquid-glass.scss    # Liquid glass SVG filter effect
   components/            # Styles used on 2+ pages
     button.scss
+    card-grid.scss
+    cta.scss
     excellence.scss
+    feature-list.scss
+    footer.scss
     header.scss
     hero.scss
     intro.scss
     logo.scss
-    cta.scss
-    footer.scss
+    modal.scss
+    team.scss
   pages/                 # Styles used on exactly 1 page
     why-sparkhealth/
-      different.scss
+      clinical-memory.scss
     platform/
-      excellence.scss
+      enterprise.scss
+      security.scss
     about/
-      about.scss
+      leadership.scss
 ```
 
 **Rule: `components/` = styles used on 2 or more pages. `pages/<page>/` = styles used on exactly 1 page.**
@@ -73,7 +79,10 @@ Each page loads its styles via `<link rel="stylesheet">` tags in `<head>`. Alway
 
 ```html
 <link rel="stylesheet" href="/src/style/main.scss" />
-<link rel="stylesheet" href="/src/style/pages/why-sparkhealth/different.scss" />
+<link
+  rel="stylesheet"
+  href="/src/style/pages/why-sparkhealth/clinical-memory.scss"
+/>
 ```
 
 Using `<link>` tags (not JS imports) ensures styles are render-blocking and eliminates flash of unstyled content.
@@ -95,8 +104,8 @@ Each file declares its own dependencies with `@use` and a namespace alias:
 
 ```scss
 @use "../utils/colors.scss" as color;
-@use "../utils/func.scss" as func;
-// then use as: color.$purple, func.flex(...)
+@use "../utils/mixins.scss" as mix;
+// then use as: color.$purple, mix.flex(...)
 ```
 
 - Files in `components/` use `../utils/` paths.
@@ -132,13 +141,19 @@ Use tokens from `vars.scss` instead of hardcoded values:
 
 Import with `@use "../utils/vars.scss" as vars;` and use as `vars.$rounded`, `vars.$spacing-md`, etc. Never hardcode these values directly.
 
-### Flexbox
+### Mixins
 
-Use the `func.flex()` mixin instead of raw flexbox. Defaults: `row, center, center, 0, wrap`. Named parameters available:
+All mixins live in `mixins.scss` and are imported as `mix`:
+
+**`mix.flex()`** — use instead of raw flexbox. Defaults: `row, center, center, 0, wrap`.
 
 ```scss
-@include func.flex(row, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
+@include mix.flex(row, $align: center, $gap: vars.$spacing-sm, $wrap: nowrap);
 ```
+
+**`mix.badge()`** — pill-shaped label with purple-light tint background.
+
+**`mix.gradient-card($hover-opacity)`** — card with purple gradient hover effect using background-position technique.
 
 ### Colors
 
@@ -175,6 +190,50 @@ After adding or editing any code, run Prettier to format all changed files:
 
 ```bash
 npx prettier --write .
+```
+
+### JavaScript
+
+```
+src/js/
+  observe-animate.js       # Shared IntersectionObserver utility
+  scroll-animation.js      # Scroll-driven opacity highlight (excellence sections)
+  card-grid-animation.js   # Entrance animation for .card-grid-cards
+  enterprise-animation.js  # Entrance animation for .enterprise-diagram
+  feature-list-animation.js # Entrance animation for .feature-list-list
+  burger.js                # Mobile nav toggle
+  modal.js                 # Modal open/close
+```
+
+#### Entrance animations (`observe-animate.js`)
+
+All scroll-triggered entrance animations use the shared `observeAnimate()` utility:
+
+```js
+import { observeAnimate } from "./observe-animate.js";
+
+observeAnimate(selector, (el) => el.setAttribute("data-animated", ""), {
+  threshold: 0.3, // fraction of element visible before firing
+  all: false, // true = querySelectorAll, false = querySelector (default)
+});
+```
+
+**Convention:** always use `data-animated=""` as the trigger attribute (not CSS classes). CSS selects on `[data-animated]`:
+
+```scss
+&-list[data-animated] {
+  .feature-list-item:nth-child(1) {
+    animation: ...;
+  }
+}
+```
+
+Desktop-only: `observeAnimate` no-ops when `window.innerWidth <= 1000`. Mirror this in CSS with `@media (min-width: calc(vars.$breakpoint-mobile + 1px))`.
+
+Add the script to each page that uses the component:
+
+```html
+<script type="module" src="/src/js/card-grid-animation.js"></script>
 ```
 
 ### Scroll Animation
