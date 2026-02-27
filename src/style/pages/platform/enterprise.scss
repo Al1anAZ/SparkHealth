@@ -2,6 +2,35 @@
 @use "../../utils/vars.scss" as vars;
 @use "../../utils/mixins.scss" as mix;
 
+@keyframes node-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes line-grow-v {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes line-grow-h {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .enterprise {
   padding: {
     top: vars.$section-padding;
@@ -78,6 +107,95 @@
 
     &--h {
       height: 1px;
+    }
+  }
+
+  @media (min-width: calc(vars.$breakpoint-mobile + 1px)) {
+    &-diagram {
+      > :nth-child(1),
+      > :nth-child(2),
+      > :nth-child(3),
+      > :nth-child(4),
+      > :nth-child(5),
+      > :nth-child(6) {
+        opacity: 0;
+      }
+
+      > :nth-child(7) {
+        transform: scaleY(0);
+        transform-origin: bottom center;
+      }
+
+      > :nth-child(8) {
+        transform: scaleY(0);
+        transform-origin: top center;
+      }
+
+      > :nth-child(9) {
+        transform: scaleY(0);
+        transform-origin: top center;
+      }
+
+      > :nth-child(10) {
+        transform: scaleX(0);
+        transform-origin: right center;
+      }
+
+      > :nth-child(11) {
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+    }
+
+    &-diagram--animate {
+      > :nth-child(2) {
+        animation: node-appear 0.4s ease 0ms both;
+      }
+
+      > :nth-child(7) {
+        animation: line-grow-v 0.25s ease 200ms both;
+        transform-origin: bottom center;
+      }
+
+      > :nth-child(8) {
+        animation: line-grow-v 0.25s ease 200ms both;
+        transform-origin: top center;
+      }
+
+      > :nth-child(10) {
+        animation: line-grow-h 0.25s ease 200ms both;
+        transform-origin: right center;
+      }
+
+      > :nth-child(11) {
+        animation: line-grow-h 0.25s ease 200ms both;
+        transform-origin: left center;
+      }
+
+      > :nth-child(1) {
+        animation: node-appear 0.4s ease 450ms both;
+      }
+
+      > :nth-child(3) {
+        animation: node-appear 0.4s ease 450ms both;
+      }
+
+      > :nth-child(4) {
+        animation: node-appear 0.4s ease 450ms both;
+      }
+
+      > :nth-child(5) {
+        animation: node-appear 0.4s ease 450ms both;
+      }
+
+      > :nth-child(9) {
+        animation: line-grow-v 0.25s ease 700ms both;
+        transform-origin: top center;
+      }
+
+      > :nth-child(6) {
+        animation: node-appear 0.4s ease 950ms both;
+      }
     }
   }
 
