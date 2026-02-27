@@ -146,63 +146,27 @@
   }
 
   @media (min-width: vars.$breakpoint-mobile + 1px) {
-    [data-scroll-cards-section] & {
-      position: sticky;
-      top: 0;
-      height: 100dvh;
-      align-items: center;
-      padding-top: 80px;
-      padding-bottom: 80px;
-      overflow: hidden;
-    }
-
-    &-list {
+    &-text {
       [data-scroll-cards-section] & {
-        position: relative;
+        position: sticky;
+        top: 50vh;
+        transform: translateY(-50%);
       }
     }
 
     &-card {
       [data-scroll-cards-section] & {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
         transition:
-          transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
           opacity 0.4s ease,
           background-color 0.2s ease,
           box-shadow 0.2s ease;
 
-        &[data-card-state="past"] {
-          transform: translateY(60px) scale(0.95);
-          opacity: 0;
-          pointer-events: none;
-          z-index: 5;
+        &[data-card-state="dim"] {
+          opacity: 0.3;
         }
 
-        &[data-card-state="active"] {
-          transform: translate(0, 0) scale(1);
+        &[data-card-state="focus"] {
           opacity: 1;
-          z-index: 10;
-        }
-
-        &[data-card-state="near"] {
-          transform: translate(-12px, -16px) scale(0.96);
-          opacity: 0.8;
-          z-index: 9;
-        }
-
-        &[data-card-state="far"] {
-          transform: translate(-24px, -32px) scale(0.92);
-          opacity: 0.6;
-          z-index: 8;
-        }
-
-        &[data-card-state="distant"] {
-          transform: translate(-32px, -44px) scale(0.88);
-          opacity: 0;
-          z-index: 7;
         }
       }
     }

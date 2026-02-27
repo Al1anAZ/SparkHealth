@@ -179,27 +179,24 @@ npx prettier --write .
 
 ### Scroll Animation
 
-`src/js/scroll-animation.js` provides a reusable card-by-card reveal with scroll lock (sticky positioning + tall wrapper). Desktop-only — on mobile (`≤1000px`) cards remain a normal vertical list.
+`src/js/scroll-animation.js` provides opacity-based card highlighting as the user scrolls. Desktop-only — on mobile (`≤1000px`) cards remain a normal vertical list with no animation.
 
-**When to use:** any section where cards should reveal one at a time as the user scrolls through.
+**Behavior:** Left text block (`.excellence-text`) stays sticky at vertical center (`top: 50vh; transform: translateY(-50%)`). Right cards column scrolls naturally. The card whose center is closest to the viewport center gets `data-card-state="focus"` (full opacity); all others get `data-card-state="dim"` (30% opacity).
 
 **Required data attributes:**
 
 | Attribute                   | Element                      | Role                                |
 | --------------------------- | ---------------------------- | ----------------------------------- |
 | `data-scroll-cards-section` | `<div>` wrapping the section | marks as scroll animation container |
-| `data-scroll-sticky`        | the `<section>` inside       | sticky anchor                       |
-| `data-scroll-cards`         | the cards list container     | JS sets height here                 |
 | `data-scroll-card`          | each card element            | JS sets `data-card-state`           |
 
 **To apply to a new section:**
 
 1. Wrap the `<section>` in `<div data-scroll-cards-section>`
-2. Add `data-scroll-sticky` to the `<section>`
-3. Add `data-scroll-cards` to the cards list container
-4. Add `data-scroll-card` to each card
-5. Add `<script type="module" src="/src/js/scroll-animation.js"></script>` to the page
-6. Add corresponding CSS using `[data-scroll-cards-section] &` selector pattern (see `excellence.scss`)
+2. Add `data-scroll-card` to each card
+3. Add `<script type="module" src="/src/js/scroll-animation.js"></script>` to the page
+4. Add corresponding CSS using `[data-scroll-cards-section] &` selector pattern (see `excellence.scss`)
+5. Make the left text block sticky with `position: sticky; top: 50vh; transform: translateY(-50%)`
 
 ### Additional
 
